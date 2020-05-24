@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
+/* Global CSS variables declared */
+:root {
+  --bg-color-page: #222831;
+  --bg-color-barchart: #30475E;
+  --color-bars: #F2A365;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Selection pseudo-element styling for when a page element is highlighted */
+::selection {
+  color: black;
+  background: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Styling properties applied to entire page */
+html, body{
+  height: 100%;
+  background: var(--bg-color-page);
+  font-family: 'Raleway';
+}
+
+/* Page element styling for smartphones and tablets */
+@media only screen and (min-width: 300px) {
+  .title {
+    color: white;
+    font-size: 36pt;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: white;
+    font-size: 20pt;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .DataModifier {
+    color: white;
+    font-size: 18pt;
+    text-align: left;
+    padding-left: 30px;
+    text-align: center;
+  }
+
+  .Menu {
+    font-size: 18px;
+    display: inline-block;
+  }
+
+  .Warning {
+    font-size: 18px;
+    color: var(--color-bars);
+    display: inline-block;
+    padding-left: 30px;
+    text-align: center;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Page element styling for larger tablets and computers */
+@media only screen and (min-width: 769px) {
+  .title {
+    color: white;
+    font-size: 36pt;
+    text-align: left;
+    padding-left: 30px;
+  }
+
+  .subtitle {
+    color: white;
+    font-size: 20pt;
+    font-style: italic;
+    text-align: left;
+    padding-left: 30px;
+  }
+
+  .DataModifier {
+    color: white;
+    font-size: 18pt;
+    text-align: left;
+    padding-left: 30px;
+  }
+
+  .Menu {
+    font-size: 18px;
+    display: inline-block;
+  }
+
+  .Menu-item {
+    font-size: 18px;
+  }
+
+  .Warning {
+    font-size: 24px;
+    color: var(--color-bars);
+    display: inline-block;
+    padding-left: 30px;
+  }
+}
+
+/* Styling for bar chart component of page */
+.BarChart {
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  height: 85%;
+  width: 95%%;
   color: white;
+  background: var(--bg-color-barchart);
+  margin: 0px 0px 0px 0px;
+  padding: 0px 30px 0px 30px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Chart component styling for smartphones and tablets */
+@media only screen and (min-width: 300px) {
+  .BarChart-bar {
+    color: black;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    background: var(--color-bars);
+    flex-grow: 1;
+    margin: 0% 1% 0% 1%;
+    transition: 0.2s;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Chart component styling for larger tablets and computers */
+@media only screen and (min-width: 769px) {
+  .BarChart-bar {
+    color: black;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    background: var(--color-bars);
+    flex-grow: 1;
+    margin: 0% 1% 0% 1%;
+    transition: 0.2s;
   }
 }
+
+/* CSS transition styling */
+.BarChart-bar:hover {
+  background: #d6c7bb;
+  transform: scale(1.05, 1);
+}
+
+.StdButton {
+  background-color: var(--color-bars);
+  border: none;
+  color: var(--bg-color-page);
+  padding: 2px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+  margin: 5px;
+  transition: 0.4s;
+}
+
+.Menu-item {
+    font-size: 18px;
+}
+
+.StdButton:hover {
+  background: #fa8428;
+}  
