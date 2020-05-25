@@ -156,8 +156,17 @@ html, body{
   transition: 0.4s;
 }
 
+.FormClass {
+  display: inline-block;
+}
+
+.FormClass-label {
+  color: white;
+
+}
+
 .Menu-item {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .StdButton:hover {
