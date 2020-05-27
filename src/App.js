@@ -65,12 +65,12 @@ function App() {
     <div id="warning">
     </div>
     {/* Bar chart */}
-    <div className="BarChart" style= {{height:"100%"}}>
+    <div className="BarChart">
     {/* Bars within bar chart go here */}
       {
         apiData.map(quake => (
-          <div className="BarChart-bar" style={{height: quake.mag*100}}>
-          {quake.mag}
+          <div className="BarChart-bar" style={{height: quake.mag+"%"}}>
+            {quake.mag}
           </div>
         ))
       }     
