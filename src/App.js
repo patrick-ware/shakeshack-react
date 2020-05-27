@@ -5,9 +5,30 @@ import './fonts.css';
 
 function App() {
 
+  const [apiData, setApiData] = useState([
+    {mag:'5', place:'', time:''},
+    {mag:'6', place:'', time:''},
+    {mag:'7', place:'', time:''},
+    {mag:'8', place:'', time:''},
+  ]);
+
   function doFetch(){
   console.log("fetching data from API...")
+
+  const api = "https://earthquake.usgs.gov/fdsnws/event/1/query? format=geojson&starttime=2020-01-01&endtime=2020-05-26&minmagnitude=5&minlatitude=24.396308&minlongitude=-124.848974&maxlatitude=49.384358&maxlongitude=-66.885444";
+
+  fetch(api)
+    .then(response => response.json())
+    .then(data => {
+      console.log("this is data", data)
+//      setApiData({
+//        mag: data.features.properties.mag,
+//        place: data.features.properties.place,
+//        time: new Date(data.features.properties.time).toUTCString(),
+//       });
+    });
   }
+
 
   return (
   <div>
@@ -22,7 +43,7 @@ function App() {
           <option className="Menu-item" value="2.0">2.0</option>
           <option className="Menu-item" value="2.5">2.5</option>
           <option className="Menu-item" value="3.0">3.0</option>
-          <option className="Menu-item" value="3.5">3.5</optison>
+          <option className="Menu-item" value="3.5">3.5</option>
           <option className="Menu-item" value="4.0">4.0</option>
           <option className="Menu-item" value="4.5">4.5</option>
           <option className="Menu-item" value="5.0">5.0</option>
@@ -45,6 +66,13 @@ function App() {
     {/* Bar chart */}
     <div className="BarChart">
     {/* Bars within bar chart go here */}
+      {
+        apiData.map(quake => (
+          <div className="BarChart-bar" stlye={{height: quake.mag*10 +"%"}}>
+          5
+          </div>
+        ))
+      }     
     </div>
   </div>
   );
