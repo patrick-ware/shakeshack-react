@@ -4,6 +4,11 @@ import './App.css';
 import './fonts.css';
 
 function App() {
+
+  function doFetch(){
+  console.log("fetching data from API...")
+  }
+
   return (
   <div>
     <h1 className="title"> Shake Shack </h1>
@@ -17,7 +22,7 @@ function App() {
           <option className="Menu-item" value="2.0">2.0</option>
           <option className="Menu-item" value="2.5">2.5</option>
           <option className="Menu-item" value="3.0">3.0</option>
-          <option className="Menu-item" value="3.5">3.5</option>
+          <option className="Menu-item" value="3.5">3.5</optison>
           <option className="Menu-item" value="4.0">4.0</option>
           <option className="Menu-item" value="4.5">4.5</option>
           <option className="Menu-item" value="5.0">5.0</option>
@@ -33,7 +38,7 @@ function App() {
           <option className="Menu-item" value="10.0">10.0</option>
         </select>
       </form>
-      <button className="StdButton" onClick={() =>alert("hi")}> Graph it! </button>
+      <button className="StdButton" onClick={doFetch}> Graph it! </button>
     </div>
     <div id="warning">
     </div>
@@ -45,4 +50,5 @@ function App() {
   );
 }
 
+//onClick={() =>alert("hi")}
 export default App;
