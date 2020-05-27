@@ -6,6 +6,7 @@ import './fonts.css';
 function App() {
 
   const [apiData, setApiData] = useState([
+    {mag:'4', place:'', time:''},
     {mag:'5', place:'', time:''},
     {mag:'6', place:'', time:''},
     {mag:'7', place:'', time:''},
@@ -64,12 +65,12 @@ function App() {
     <div id="warning">
     </div>
     {/* Bar chart */}
-    <div className="BarChart">
+    <div className="BarChart" style= {{height:"100%"}}>
     {/* Bars within bar chart go here */}
       {
         apiData.map(quake => (
-          <div className="BarChart-bar" stlye={{height: quake.mag*10 +"%"}}>
-          5
+          <div className="BarChart-bar" style={{height: quake.mag*100}}>
+          {quake.mag}
           </div>
         ))
       }     
