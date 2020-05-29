@@ -102,8 +102,8 @@ html, body, #root, .App {
   justify-content: space-around;
   flex-wrap: nowrap;
   align-items: flex-end;
-  height: 600px;
-  width: 1700px;
+  height: 75vh;
+  width: 95vw;
   color: white;
   background: var(--bg-color-barchart);
   margin: 0px 10px 0px 10px;

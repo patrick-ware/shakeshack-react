@@ -37,7 +37,7 @@ function App() {
     <h2 className="subtitle"> Significant Earthquakes in North America in 2020</h2>
     <div className="DataModifier">
       <form className="FormClass" action="">
-        <label for="magnitude">Magnitude:</label>
+        <label htmlFor="magnitude">Magnitude:</label>
           <select className="Menu" id="magnitude" name="magnitude">
           <option className="Menu-item" value="1.0">1.0</option>
           <option className="Menu-item" value="1.5">1.5</option>
