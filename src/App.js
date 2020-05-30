@@ -35,7 +35,7 @@ function App() {
     });
   }
 
-  useEffect(doFetch,[])
+  useEffect(doFetch,[minMag],[maxMag])
 
   return (
   <div>
