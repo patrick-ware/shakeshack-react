@@ -51,6 +51,12 @@ function App() {
           <option className="Menu-item" value="10.0">10.0</option>
         </select>
       </form>
+      <form>
+        <label htmlFor="minmag">Minimum Magnitude:</label>
+        <input type="text" id="minmag" name="migmag"></input>
+        <label htmlFor="maxmag">Maximum Magnitude:</label>
+        <input type="text" id="maxmag" name="maxmag"></input>
+      </form>
       <button className="StdButton" onClick={doFetch}> Graph it! </button>
     </div>
     <div id="warning">
