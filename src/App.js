@@ -68,9 +68,9 @@ function App() {
       </form>
       <form>
         <label htmlFor="minmag">Minimum Magnitude:</label>
-          <input type="text" id="minmag" value={minMag} onChange={minimumMagnitude} />
+          <input type="number" id="minmag" min="1" max="10" value={minMag} onChange={minimumMagnitude} />
         <label htmlFor="maxmag">Maximum Magnitude:</label>
-          <input type="text" id="maxmag" value={maxMag} onChange={maximumMagnitude} />
+          <input type="number" id="maxmag" min="1" max="10" value={maxMag} onChange={maximumMagnitude} />
       </form>
       <button className="StdButton" onClick={doFetch}> Graph it! </button>
     </div>
