@@ -5,10 +5,19 @@ import './fonts.css';
 
 function App() {
 
-  const [apiData, setApiData] = useState([])
+  const [apiData, setApiData] = useState([]);
+  const [minMag, setMinMag] = useState(5);
+  const [maxMag, setMaxMag] = useState(8);
+
+  function minimumMagnitude(ev) {
+    let value = ev.target.value;
+    console.log('Interests value!', value);
+    setMinMag(value);
+  }
+  
 
   function doFetch(){
-  console.log("fetching data from API...")
+  console.log("fetching data from API...");
 
   const api = "https://earthquake.usgs.gov/fdsnws/event/1/query? format=geojson&starttime=2020-01-01&endtime=2020-05-26&minmagnitude=5&minlatitude=24.396308&minlongitude=-124.848974&maxlatitude=49.384358&maxlongitude=-66.885444";
   
@@ -53,9 +62,9 @@ function App() {
       </form>
       <form>
         <label htmlFor="minmag">Minimum Magnitude:</label>
-        <input type="text" id="minmag" name="migmag"></input>
+          <input type="text" id="minmag" value={minMag} onChange={minimumMagnitude} />
         <label htmlFor="maxmag">Maximum Magnitude:</label>
-        <input type="text" id="maxmag" name="maxmag"></input>
+          <input type="text" id="maxmag" />
       </form>
       <button className="StdButton" onClick={doFetch}> Graph it! </button>
     </div>
