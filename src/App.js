@@ -44,9 +44,9 @@ function App() {
     <div className="DataModifier">
       <form>
         <label htmlFor="minmag">Minimum Magnitude:</label>
-          <input type="number" id="minmag" min="1" max="10" value={minMag} onChange={minimumMagnitude} />
+          <input className="MagInput" type="number" id="minmag" min="1" max="10" value={minMag} onChange={minimumMagnitude} />
         <label htmlFor="maxmag">Maximum Magnitude:</label>
-          <input type="number" id="maxmag" min="1" max="10" value={maxMag} onChange={maximumMagnitude} />
+          <input className="MagInput" type="number" id="maxmag" min="1" max="10" value={maxMag} onChange={maximumMagnitude} />
       </form>
     </div>
     <div id="warning">
@@ -66,5 +66,4 @@ function App() {
   );
 }
 
-//onClick={() =>alert("hi")}
 export default App;
