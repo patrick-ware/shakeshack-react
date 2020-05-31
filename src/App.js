@@ -43,10 +43,26 @@ function App() {
     <h2 className="subtitle"> Significant Earthquakes in North America in 2020</h2>
     <div className="DataModifier">
       <form>
-        <label htmlFor="minmag">Minimum Magnitude:</label>
-          <input className="MagInput" type="number" id="minmag" min="1" max="10" value={minMag} onChange={minimumMagnitude} />
+        <label htmlFor="minmag"> Minimum Magnitude:</label>
+          <input 
+            className="MagInput" 
+            type="number" 
+            id="minmag" 
+            min="1" 
+            max="10" 
+            value={minMag} 
+            onChange={minimumMagnitude} 
+          />
         <label htmlFor="maxmag">Maximum Magnitude:</label>
-          <input className="MagInput" type="number" id="maxmag" min="1" max="10" value={maxMag} onChange={maximumMagnitude} />
+          <input 
+            className="MagInput" 
+            type="number" 
+            id="maxmag" 
+            min="1" 
+            max="10" 
+            value={maxMag} 
+            onChange={maximumMagnitude} 
+          />
       </form>
     </div>
     <div id="warning">
@@ -56,7 +72,12 @@ function App() {
     {/* Bars within bar chart go here */}
       {
         Object.entries(apiData).map(([key, value]) => (
-          <div className="BarChart-bar" key={key} style={{height: value.properties.mag*10+"%"}}>
+          <div 
+            className="BarChart-bar" 
+            key={key} 
+            style={{height: value.properties.mag*10+"%"}}
+            onClick={()=>{alert(value.properties.mag+" | "+ value.properties.place +" | "+ new Date(value.properties.time).toUTCString())}}
+          >
             {value.properties.mag.toFixed(1)}
           </div>
         ))
