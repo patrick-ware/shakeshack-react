@@ -1,5 +1,5 @@
 ![shake-shack-js](./shake-shack-react.png)
-# shake-shack-js
+# shake-shack-react
 
 A React-enabled visualization of 2020 earthquake data in North America from [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/)
 
