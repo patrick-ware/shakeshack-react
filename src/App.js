@@ -6,8 +6,8 @@ import './fonts.css';
 function App() {
 
   const [apiData, setApiData] = useState([]);
-  const [minMag, setMinMag] = useState(5);
-  const [maxMag, setMaxMag] = useState(8);
+  const [minMag, setMinMag] = useState(5.0);
+  const [maxMag, setMaxMag] = useState(8.0);
 
   function minimumMagnitude(ev) {
     let value = ev.target.value;
@@ -48,8 +48,9 @@ function App() {
             className="MagInput" 
             type="number" 
             id="minmag" 
-            min="1" 
-            max="10" 
+            min="1.0" 
+            max="10.0"
+            step="0.1"
             value={minMag} 
             onChange={minimumMagnitude} 
           />
@@ -58,8 +59,9 @@ function App() {
             className="MagInput" 
             type="number" 
             id="maxmag" 
-            min="1" 
-            max="10" 
+            min="1.0" 
+            max="10.0"
+            step="0.1" 
             value={maxMag} 
             onChange={maximumMagnitude} 
           />
@@ -71,15 +73,16 @@ function App() {
     <div className="BarChart">
     {/* Bars within bar chart go here */}
       {
-        Object.entries(apiData).map(([key, value]) => (
-          <div 
-            className="BarChart-bar" 
-            key={key} 
-            style={{height: value.properties.mag*10+"%"}}
-            onClick={()=>{alert(value.properties.mag+" | "+ value.properties.place +" | "+ new Date(value.properties.time).toUTCString())}}
-          >
-            {value.properties.mag.toFixed(1)}
-          </div>
+        Object.entries(apiData).slice(0,19)
+          .map(([key, value]) => (
+            <div 
+              className="BarChart-bar" 
+              key={key} 
+              style={{height: value.properties.mag*10+"%"}}
+              onClick={()=>{alert(value.properties.mag+" | "+ value.properties.place +" | "+ new Date(value.properties.time).toUTCString())}}
+            >
+              {value.properties.mag.toFixed(1)}
+            </div>
         ))
       }     
     </div>
