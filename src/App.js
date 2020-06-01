@@ -20,12 +20,12 @@ function App() {
     console.log('Maximum magnitude:', value);
     setMaxMag(value);
   }
-  
 
+  // Fetch data from API
   function doFetch(){
   console.log("fetching data from API...");
 
-  const api = "https://earthquake.usgs.gov/fdsnws/event/1/query? format=geojson&starttime=2020-01-01&endtime=2020-05-26&minmagnitude="+minMag+"&maxmagnitude="+maxMag+"&minlatitude=24.396308&minlongitude=-124.848974&maxlatitude=49.384358&maxlongitude=-66.885444";
+  const api = "https://earthquake.usgs.gov/fdsnws/event/1/query? format=geojson&starttime=2020-01-01&endtime="+today+"&minmagnitude="+minMag+"&maxmagnitude="+maxMag+"&minlatitude=24.396308&minlongitude=-124.848974&maxlatitude=49.384358&maxlongitude=-66.885444";
   
   fetch(api)
     .then(response => response.json())
@@ -34,6 +34,16 @@ function App() {
         setApiData(data.features)
     });
   }
+
+  // Get current date
+  let dateObj = new Date();
+  
+  let month = dateObj.getUTCMonth() + 1; //months from 1-12
+  let day = dateObj.getUTCDate();
+  let year = dateObj.getUTCFullYear();
+  
+  // Create variable to pass into api
+  let today = year + "-" + month + "-" + day;
 
   useEffect(doFetch,[minMag, maxMag])
 
@@ -66,6 +76,25 @@ function App() {
             onChange={maximumMagnitude} 
           />
       </form>
+      <div className="Warning">
+      {Object.entries(apiData).length > 20 &&
+        <p>
+          Warning! Your selection has queried more records 
+          than can be displayed on the graph ({Object.entries(apiData).length} records). 
+          Only the 20 most recent records will be shown.
+        </p>
+      }
+      {Object.entries(apiData).length === 0 && minMag < maxMag &&
+        <p>
+          Warning! Your selection has queried no records.
+        </p>
+      }
+      {minMag > maxMag &&
+        <p>
+          Warning! Minimum magnitude value must be less than maximum magnitude value.
+        </p>
+      }
+      </div>
     </div>
     <div id="warning">
     </div>
