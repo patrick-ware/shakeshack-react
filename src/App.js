@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './fonts.css';
 
 function App() {
 
