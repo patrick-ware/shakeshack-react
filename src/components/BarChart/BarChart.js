@@ -4,7 +4,7 @@ import './BarChart.css';
 function BarChart(props) {
   return (
     <div className="BarChart">
-        {props.children}
+      {props.children}
     </div>
   );
 }

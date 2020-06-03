@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import BarChart from './components/BarChart/BarChart.js';
 
 function App() {
 
@@ -98,7 +99,7 @@ function App() {
     <div id="warning">
     </div>
     {/* Bar chart */}
-    <div className="BarChart">
+    <BarChart>
     {/* Bars within bar chart go here */}
       {
         Object.entries(apiData).slice(0,19)
@@ -113,7 +114,7 @@ function App() {
             </div>
         ))
       }     
-    </div>
+    </BarChart>
   </div>
   );
 }
