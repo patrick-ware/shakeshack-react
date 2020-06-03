@@ -1,11 +1,12 @@
 import React from 'react';
-import './BarChart-bar.css';
+import './BarChartBar.css';
 
-function BarChart-bar(props) {
+function BarChartBar(props) {
   return (
     <div 
       className="BarChart-bar"
-      style={props.style}
+      key={props.key}
+      style ={props.style}
       onClick={props.onClick}
     >
       {props.children}
@@ -13,4 +14,4 @@ function BarChart-bar(props) {
   );
 }
 
-export default BarChart-bar;
+export default BarChartBar;

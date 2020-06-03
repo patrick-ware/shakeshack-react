@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import BarChart from './components/BarChart/BarChart.js';
+import BarChartBar from './components/BarChartBar/BarChartBar.js';
 
 function App() {
 
@@ -104,14 +105,13 @@ function App() {
       {
         Object.entries(apiData).slice(0,19)
           .map(([key, value]) => (
-            <div 
-              className="BarChart-bar" 
+            <BarChartBar
               key={key} 
               style={{height: value.properties.mag*10+"%"}}
               onClick={()=>{alert(value.properties.mag+" | "+ value.properties.place +" | "+ new Date(value.properties.time).toUTCString())}}
             >
               {value.properties.mag.toFixed(1)}
-            </div>
+            </BarChartBar>
         ))
       }     
     </BarChart>
