@@ -1,0 +1,33 @@
+/* Chart component styling for smartphones and tablets */
+@media only screen and (min-width: 300px) {
+  .BarChart-bar {
+    color: black;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    background: var(--color-bars);
+    flex-grow: 1;
+    margin: 0% 1% 0% 1%;
+    transition: 0.2s;
+  }
+}
+
+/* Chart component styling for larger tablets and computers */
+@media only screen and (min-width: 769px) {
+  .BarChart-bar {
+    color: black;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    background: var(--color-bars);
+    flex-grow: 1;
+    margin: 0% 1% 0% 1%;
+    transition: 0.2s;
+  }
+}
+
+/* CSS transition styling */
+.BarChart-bar:hover {
+  background: #d6c7bb;
+  transform: scale(1.05, 1);
+}
