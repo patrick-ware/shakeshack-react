@@ -26,7 +26,15 @@ function App() {
   function doFetch(){
   console.log("fetching data from API...");
 
-  const api = "https://earthquake.usgs.gov/fdsnws/event/1/query? format=geojson&starttime=2020-01-01&endtime="+today+"&minmagnitude="+minMag+"&maxmagnitude="+maxMag+"&minlatitude=24.396308&minlongitude=-124.848974&maxlatitude=49.384358&maxlongitude=-66.885444";
+  const api = 
+    "https://earthquake.usgs.gov/fdsnws/event/1/\
+query?format=geojson&starttime=2020-01-01&\
+endtime=" + today + 
+"&minmagnitude=" + minMag + 
+"&maxmagnitude=" + maxMag + 
+"&minlatitude=24.396308&minlongitude=-124.848974\
+&maxlatitude=49.384358&maxlongitude=-66.885444";
+  console.log(api)
   
   fetch(api)
     .then(response => response.json())
@@ -108,7 +116,12 @@ function App() {
             <BarChartBar
               key={key} 
               style={{height: value.properties.mag*10+"%"}}
-              onClick={()=>{alert(value.properties.mag+" | "+ value.properties.place +" | "+ new Date(value.properties.time).toUTCString())}}
+              onClick={() => {
+                alert(value.properties.mag + 
+                " | " + value.properties.place +
+                " | " + new Date(value.properties.time).toUTCString())
+                }
+              }
             >
               {value.properties.mag.toFixed(1)}
             </BarChartBar>
