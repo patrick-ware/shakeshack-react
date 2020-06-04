@@ -34,7 +34,6 @@ endtime=" + today +
 "&maxmagnitude=" + maxMag + 
 "&minlatitude=24.396308&minlongitude=-124.848974\
 &maxlatitude=49.384358&maxlongitude=-66.885444";
-  console.log(api)
   
   fetch(api)
     .then(response => response.json())
@@ -104,8 +103,6 @@ endtime=" + today +
         </p>
       }
       </div>
-    </div>
-    <div id="warning">
     </div>
     {/* Bar chart */}
     <BarChart>
