@@ -6,9 +6,11 @@ import BarChart from './components/BarChart/BarChart.js';
 import BarChartBar from './components/BarChartBar/BarChartBar.js';
 import DataModifier from './components/DataModifier/DataModifier.js';
 import MagInput from './components/MagInput/MagInput.js';
+import WarningMsg from './components/WarningMsg/WarningMsg.js';
+
 
 function App() {
-
+  // Establish state variables
   const [apiData, setApiData] = useState([]);
   const [minMag, setMinMag] = useState(5.0);
   const [maxMag, setMaxMag] = useState(8.0);
@@ -46,6 +48,8 @@ endtime=" + today +
     });
   }
 
+  let dataLength=Object.entries(apiData).length
+
   // Get current date
   let dateObj = new Date();
   
@@ -76,25 +80,11 @@ endtime=" + today +
           changeMag={maximumMagnitude}
         />
       </form>
-      <div className="Warning">
-      {Object.entries(apiData).length > 20 &&
-        <p>
-          Warning! Your selection has queried more records 
-          than can be displayed on the graph ({Object.entries(apiData).length} records). 
-          Only the 20 most recent records will be shown.
-        </p>
-      }
-      {Object.entries(apiData).length === 0 && minMag < maxMag &&
-        <p>
-          Warning! Your selection has queried no records.
-        </p>
-      }
-      {minMag > maxMag &&
-        <p>
-          Warning! Minimum magnitude value must be less than maximum magnitude value.
-        </p>
-      }
-      </div>
+      <WarningMsg
+        dataLength={Object.entries(apiData).length}
+        minMag={minMag}
+        maxMag={maxMag}
+      />
     </div>
     {/* Bar chart */}
     <BarChart>
