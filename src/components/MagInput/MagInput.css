@@ -1,0 +1,8 @@
+.MagInput {
+  font-size:18px;
+  width: 40px;
+  text-align: center;
+  background: var(--color-bars);
+  margin: 5px;
+  border-radius: 4px;
+}

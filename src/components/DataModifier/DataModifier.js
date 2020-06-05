@@ -1,7 +1,7 @@
 import React from 'react';
 import './DataModifier.css';
 
-function DataModier(props) {
+function DataModifier(props) {
   return (
     <div className="DataModifier">
       <form>
@@ -30,5 +30,6 @@ function DataModier(props) {
       </form>
       {props.children}
     </div>
-
+  )
+}
 export default DataModifier;

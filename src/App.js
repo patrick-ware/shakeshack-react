@@ -1,8 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
+// Import components
 import BarChart from './components/BarChart/BarChart.js';
 import BarChartBar from './components/BarChartBar/BarChartBar.js';
+import DataModifier from './components/DataModifier/DataModifier.js';
+import MagInput from './components/MagInput/MagInput.js';
 
 function App() {
 
@@ -59,19 +62,10 @@ endtime=" + today +
   <div>
     <h1 className="title"> Shake Shack </h1>
     <h2 className="subtitle"> Significant Earthquakes in North America in 2020</h2>
+    
     <div className="DataModifier">
       <form>
-        <label htmlFor="minmag"> Minimum Magnitude:</label>
-          <input 
-            className="MagInput" 
-            type="number" 
-            id="minmag" 
-            min="1.0" 
-            max="10.0"
-            step="0.1"
-            value={minMag} 
-            onChange={minimumMagnitude} 
-          />
+        <MagInput label = "Minimum Magnitude"/>
         <label htmlFor="maxmag">Maximum Magnitude:</label>
           <input 
             className="MagInput" 
