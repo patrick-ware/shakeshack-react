@@ -65,18 +65,16 @@ endtime=" + today +
     
     <div className="DataModifier">
       <form>
-        <MagInput label = "Minimum Magnitude"/>
-        <label htmlFor="maxmag">Maximum Magnitude:</label>
-          <input 
-            className="MagInput" 
-            type="number" 
-            id="maxmag" 
-            min="1.0" 
-            max="10.0"
-            step="0.1" 
-            value={maxMag} 
-            onChange={maximumMagnitude} 
-          />
+        <MagInput 
+          label="Minimum Magnitude"
+          mag={minMag}
+          changeMag={minimumMagnitude}
+        />
+        <MagInput 
+          label="Maximum Magnitude"
+          mag={maxMag}
+          changeMag={maximumMagnitude}
+        />
       </form>
       <div className="Warning">
       {Object.entries(apiData).length > 20 &&

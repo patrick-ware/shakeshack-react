@@ -12,8 +12,8 @@ function MagInput(props) {
           min="1.0" 
           max="10.0"
           step="0.1"
-  //        value={props.minMag} 
-  //        onChange={props.minimumMagnitude} 
+        value={props.mag} 
+        onChange={props.changeMag} 
         />
     </div>
   )
