@@ -3,7 +3,7 @@ import './MagInput.css';
 
 function MagInput(props) {
   return (
-    <div>
+    <div style={{display: "inline-block"}}>
       <label htmlFor="minmag"> {props.label}:</label>
         <input 
           className="MagInput" 
