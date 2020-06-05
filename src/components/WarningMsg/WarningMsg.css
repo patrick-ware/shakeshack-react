@@ -1,4 +1,5 @@
 /* Page element styling for smartphones and tablets */
+@media only screen and (min-width: 300px) {
   .Warning {
     font-size: 18px;
     color: var(--color-bars);
