@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 // Import components
 import BarChart from './components/BarChart/BarChart.js';
-import BarChartBar from './components/BarChartBar/BarChartBar.js';
 import DataModifier from './components/DataModifier/DataModifier.js';
 import MagInput from './components/MagInput/MagInput.js';
 import WarningMsg from './components/WarningMsg/WarningMsg.js';
@@ -15,12 +14,14 @@ function App() {
   const [minMag, setMinMag] = useState(5.0);
   const [maxMag, setMaxMag] = useState(8.0);
 
+  // Modify minimum magnitude
   function minimumMagnitude(ev) {
     let value = ev.target.value;
     console.log('Minimum magnitude:', value);
     setMinMag(value);
   }
 
+  // Modify maximum magnitude
   function maximumMagnitude(ev) {
     let value = ev.target.value;
     console.log('Maximum magnitude:', value);
@@ -87,26 +88,10 @@ endtime=" + today +
       />
     </div>
     {/* Bar chart */}
-    <BarChart>
-    {/* Bars within bar chart go here */}
-      {
-        Object.entries(apiData).slice(0,19)
-          .map(([key, value]) => (
-            <BarChartBar
-              key={key} 
-              style={{height: value.properties.mag*10+"%"}}
-              onClick={() => {
-                alert(value.properties.mag + 
-                " | " + value.properties.place +
-                " | " + new Date(value.properties.time).toUTCString())
-                }
-              }
-            >
-              {value.properties.mag.toFixed(1)}
-            </BarChartBar>
-        ))
-      }     
-    </BarChart>
+    <BarChart 
+      apiData={apiData}
+    />
+
   </div>
   );
 }
