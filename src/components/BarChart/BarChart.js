@@ -8,7 +8,8 @@ function BarChart(props) {
         Object.entries(props.apiData).slice(0,19)
           .map(([key, value]) => (
             <div 
-              className="BarChart-bar" 
+              className="BarChart-bar"
+              key={key} 
               style={{height: value.properties.mag*10+"%"}}
               onClick={()=>{alert(value.properties.mag+" | "+ value.properties.place +" | "+ new Date(value.properties.time).toUTCString())}}
             >
