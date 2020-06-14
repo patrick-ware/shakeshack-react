@@ -18,6 +18,7 @@
 }
 
 .tooltiptext {
+  font-size: 12pt;
   visibility: hidden;
   width: 120px;
   background-color: black;

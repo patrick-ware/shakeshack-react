@@ -15,7 +15,9 @@ function BarChart(props) {
             >
               {value.properties.mag.toFixed(1)}
               <div className="tooltiptext">
-                {value.properties.mag.toFixed(1)}
+                <p>{value.properties.mag.toFixed(1)}</p>
+                <p>{value.properties.place}</p>
+                <p>{new Date(value.properties.time).toUTCString()}</p>
               </div>
             </div>
         ))
