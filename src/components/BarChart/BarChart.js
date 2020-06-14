@@ -13,6 +13,7 @@ function BarChart(props) {
               style={{height: value.properties.mag*10+"%"}}
               onClick={()=>{alert(value.properties.mag+" | "+ value.properties.place +" | "+ new Date(value.properties.time).toUTCString())}}
             >
+              {value.properties.mag.toFixed(1)}
               <div className="tooltiptext">
                 {value.properties.mag.toFixed(1)}
               </div>
