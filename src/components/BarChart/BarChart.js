@@ -5,7 +5,7 @@ function BarChart(props) {
   return (
     <div className="BarChart">
       {
-        Object.entries(props.apiData).slice(0,19)
+        Object.entries(props.apiData).slice(props.page, props.page+19)
           .map(([key, value]) => (
             <div 
               className="BarChart-bar"

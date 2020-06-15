@@ -103,7 +103,11 @@ function App() {
     </div>
     <BarChart 
       apiData={apiData}
+      page={page}
     />
+    current page: {page}
+    <button onClick={goToPreviousPage}>prev page</button>
+    <button onClick={goToNextPage}>next page</button>
   </div>
   );
 }
