@@ -17,6 +17,7 @@ function App() {
     let value = ev.target.value;
     console.log('Minimum magnitude:', value);
     setMinMag(value);
+    setPage(1);
   }
 
   // Modify maximum magnitude
@@ -24,6 +25,7 @@ function App() {
     let value = ev.target.value;
     console.log('Maximum magnitude:', value);
     setMaxMag(value);
+    setPage(1);
   }
   // Go to next page
   function goToNextPage() {
