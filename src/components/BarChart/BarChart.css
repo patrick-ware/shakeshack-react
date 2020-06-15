@@ -11,12 +11,6 @@
   padding: 0px 30px 0px 30px;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
 .tooltiptext {
   font-size: 12pt;
   visibility: hidden;

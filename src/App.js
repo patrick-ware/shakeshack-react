@@ -10,6 +10,7 @@ function App() {
   const [apiData, setApiData] = useState([]);
   const [minMag, setMinMag] = useState(5.0);
   const [maxMag, setMaxMag] = useState(8.0);
+  const [page, setPage] = useState(1);
 
   // Modify minimum magnitude
   function minimumMagnitude(ev) {
@@ -23,6 +24,16 @@ function App() {
     let value = ev.target.value;
     console.log('Maximum magnitude:', value);
     setMaxMag(value);
+  }
+  // Go to next page
+  function goToNextPage() {
+    const newPageValue = Math.min(page + 1, apiData.length)
+    setPage(newPageValue)
+  }
+  // Go to previous page
+  function goToPreviousPage() {
+    const newPageValue = Math.max(page - 1, 1)
+    setPage(newPageValue)
   }
 
   // Get todays date to pass into api
