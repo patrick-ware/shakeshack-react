@@ -27,7 +27,7 @@ function App() {
   }
   // Go to next page
   function goToNextPage() {
-    const newPageValue = Math.min(page + 1, apiData.length)
+    const newPageValue = Math.min(page + 1, Math.ceil(apiData.length/20))
     setPage(newPageValue)
   }
   // Go to previous page
