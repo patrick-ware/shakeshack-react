@@ -108,8 +108,8 @@ function App() {
       page={page}
     />
     current page: {page}
-    <button onClick={goToPreviousPage}>prev page</button>
-    <button onClick={goToNextPage}>next page</button>
+    <button className="PageButton" onClick={goToPreviousPage}> Previous Page </button>
+    <button className="PageButton" onClick={goToNextPage}>Next Page</button>
   </div>
   );
 }
