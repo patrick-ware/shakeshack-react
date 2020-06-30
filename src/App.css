@@ -103,6 +103,23 @@ html, body, #root, .App {
 
 .PageNav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     color: white;
+}
+
+.PageNav-control {
+    color: white;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.PageNav-control:hover {
+  color: #F2A365;
+  transform: scale(1.02, 1);
+}
+
+
+.PageNav-position {
+   margin: 0px 20px 0px 20px;
 }

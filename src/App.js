@@ -99,9 +99,9 @@ function App() {
         page={page}
       />
       <div className="PageNav">
-        <div className="page-change-prev" onClick={goToPreviousPage}>⬅ Previous Page </div>
-        <div className="current-page"> Page {page} of {Math.ceil(apiData.length/20)} </div>
-        <div className="page-change-next" onClick={goToNextPage}>Next Page ➡</div>
+        <button className="PageNav-control" onClick={goToPreviousPage}>⬅ Previous Page </button>
+        <div className="PageNav-position"> Page {page} of {Math.ceil(apiData.length/20)} </div>
+        <button className="PageNav-control" onClick={goToNextPage}>Next Page ➡</button>
       </div>
     </div>
   );
