@@ -78,7 +78,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="title"> Shake Shack </h1>
+      <div className="title"> Shake Shack </div>
       <h2 className="subtitle"> Significant Earthquakes in North America in 2020</h2>    
       <div className="DataModifier">
         <form>
