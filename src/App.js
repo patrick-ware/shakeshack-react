@@ -93,11 +93,6 @@ function App() {
             changeMag={maximumMagnitude}
           />
         </form>
-        <WarningMsg
-          dataLength={Object.entries(apiData).length}
-          minMag={minMag}
-          maxMag={maxMag}
-        />
       </div>
       <BarChart 
         apiData={apiData}
