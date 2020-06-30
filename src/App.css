@@ -100,3 +100,9 @@ html, body, #root, .App {
   background: #d6c7bb;
   transform: scale(1.05, 1);
 }
+
+.PageNav {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}

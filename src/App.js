@@ -77,40 +77,38 @@ function App() {
   useEffect(doFetch,[minMag, maxMag])
 
   return (
-  <div>
-    <h1 className="title"> 
-      Shake Shack 
-    </h1>
-    <h2 className="subtitle"> 
-      Significant Earthquakes in North America in 2020
-    </h2>    
-    <div className="DataModifier">
-      <form>
-        <MagInput 
-          label="Minimum Magnitude"
-          mag={minMag}
-          changeMag={minimumMagnitude}
+    <div>
+      <h1 className="title"> Shake Shack </h1>
+      <h2 className="subtitle"> Significant Earthquakes in North America in 2020</h2>    
+      <div className="DataModifier">
+        <form>
+          <MagInput 
+            label="Minimum Magnitude"
+            mag={minMag}
+            changeMag={minimumMagnitude}
+          />
+          <MagInput 
+            label="Maximum Magnitude"
+            mag={maxMag}
+            changeMag={maximumMagnitude}
+          />
+        </form>
+        <WarningMsg
+          dataLength={Object.entries(apiData).length}
+          minMag={minMag}
+          maxMag={maxMag}
         />
-        <MagInput 
-          label="Maximum Magnitude"
-          mag={maxMag}
-          changeMag={maximumMagnitude}
-        />
-      </form>
-      <WarningMsg
-        dataLength={Object.entries(apiData).length}
-        minMag={minMag}
-        maxMag={maxMag}
+      </div>
+      <BarChart 
+        apiData={apiData}
+        page={page}
       />
+      <div className="PageNav">
+        <div className="page-change-prev" onClick={goToPreviousPage}>⬅ Previous Page </div>
+        <div className="current-page"> Page {page} of {Math.ceil(apiData.length/20)} </div>
+        <div className="page-change-next" onClick={goToNextPage}>Next Page ➡</div>
+      </div>
     </div>
-    <BarChart 
-      apiData={apiData}
-      page={page}
-    />
-    current page: {page}
-    <button className="PageButton" onClick={goToPreviousPage}> Previous Page </button>
-    <button className="PageButton" onClick={goToNextPage}>Next Page</button>
-  </div>
   );
 }
 
