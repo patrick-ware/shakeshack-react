@@ -96,18 +96,18 @@ function App() {
             changeMag={maximumMagnitude}
           />
         Start Date:
-        <input 
-          type="date" 
-          id="start" 
-          name="trip-start"
+        <input
+          type="date"
+          className="DateInput"
           value={startDate}
+          onChange={setStartDate}
         />
         End Date:
-        <input 
-          type="date" 
-          id="end" 
-          name="trip-start"
+        <input
+          type="date"
+          className="DateInput" 
           value={endDate}
+          onChange={setEndDate}
         />
         </form>
       </div>

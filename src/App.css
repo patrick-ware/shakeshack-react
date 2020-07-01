@@ -124,3 +124,11 @@ html, body, #root, .App {
 .PageNav-position {
    margin: 0px 20px 0px 20px;
 }
+
+.DateInput {
+  font-size:18px;
+  text-align: center;
+  background: var(--color-bars);
+  margin: 5px;
+  border-radius: 4px;
+}
