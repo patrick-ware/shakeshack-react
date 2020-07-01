@@ -11,6 +11,8 @@ function App() {
   const [apiData, setApiData] = useState([]);
   const [minMag, setMinMag] = useState(5.0);
   const [maxMag, setMaxMag] = useState(8.0);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [page, setPage] = useState(1);
 
   // Modify minimum magnitude
@@ -94,9 +96,19 @@ function App() {
             changeMag={maximumMagnitude}
           />
         Start Date:
-        <DatePicker />
+        <input 
+          type="date" 
+          id="start" 
+          name="trip-start"
+          value={startDate}
+        />
         End Date:
-        <DatePicker />
+        <input 
+          type="date" 
+          id="end" 
+          name="trip-start"
+          value={endDate}
+        />
         </form>
       </div>
       <BarChart 
