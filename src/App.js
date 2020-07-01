@@ -4,6 +4,7 @@ import './App.css';
 import BarChart from './components/BarChart/BarChart.js';
 import MagInput from './components/MagInput/MagInput.js';
 import WarningMsg from './components/WarningMsg/WarningMsg.js';
+import DatePicker from 'react-date-picker';
 
 
 function App() {
@@ -92,6 +93,10 @@ function App() {
             mag={maxMag}
             changeMag={maximumMagnitude}
           />
+        Start Date:
+        <DatePicker />
+        End Date:
+        <DatePicker />
         </form>
       </div>
       <BarChart 

@@ -92,6 +92,7 @@ html, body, #root, .App {
     flex-grow: 1;
     margin: 0% 1% 0% 1%;
     transition: 0.2s;
+    max-width: 20%;
   }
 }
 
