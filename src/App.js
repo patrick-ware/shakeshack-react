@@ -11,7 +11,7 @@ function App() {
   const [apiData, setApiData] = useState([]);
   const [minMag, setMinMag] = useState(5.0);
   const [maxMag, setMaxMag] = useState(8.0);
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date("January 1, 2020 00:00:00"));
   const [endDate, setEndDate] = useState(new Date());
   const [page, setPage] = useState(1);
 
