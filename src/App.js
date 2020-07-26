@@ -60,7 +60,7 @@ function App() {
   }
 
   // Format end date
-  function formatStartDate(){
+  function formatEndDate(){
     let endMonth = endDate.getUTCMonth() + 1; //months from 1-12
     let endDay = endDate.getUTCDate();
     let endYear = endDate.getUTCFullYear();
@@ -90,13 +90,16 @@ function App() {
     const api = 
       "https://earthquake.usgs.gov/fdsnws/event/1/"+
       "query?format=geojson&starttime=2020-01-01&"+
-      "endtime=" + currentDate() + 
+      "starttime="+ formatStartDate() +
+      "&endtime=" + formatEndDate() + 
       "&minmagnitude=" + minMag + 
       "&maxmagnitude=" + maxMag + 
       "&minlatitude=24.396308"+
       "&minlongitude=-124.848974"+
       "&maxlatitude=49.384358"+
       "&maxlongitude=-66.885444";
+    
+    console.log(api)
     
     fetch(api)
       .then(response => response.json())
@@ -106,7 +109,7 @@ function App() {
       });
     }
 
-  useEffect(doFetch,[minMag, maxMag])
+  useEffect(doFetch,[minMag, maxMag, startDate, endDate])
 
   return (
     <div>
