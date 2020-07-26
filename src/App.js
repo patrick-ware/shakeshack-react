@@ -30,6 +30,13 @@ function App() {
     setMaxMag(value);
     setPage(1);
   }
+
+  //Check date inputs
+  function checkDates(){
+    console.log('Start date is:', startDate)
+    console.log('End date is:', endDate)  
+  }
+
   // Go to next page
   function goToNextPage() {
     const newPageValue = Math.min(page + 1, Math.ceil(apiData.length/20))
@@ -39,6 +46,17 @@ function App() {
   function goToPreviousPage() {
     const newPageValue = Math.max(page - 1, 1)
     setPage(newPageValue)
+  }
+
+  // Format date
+  function formatDate(){
+    let startMonth = startDate.getUTCMonth() + 1; //months from 1-12
+    let startDay = startDate.getUTCDate();
+    let startYear = startDate.getUTCFullYear();
+
+    let startTime = startYear + "-" + startMonth + "-" + startDay;
+    console.log("api start date is", startTime)
+    return startTime
   }
 
   // Get todays date to pass into api
@@ -96,20 +114,29 @@ function App() {
             changeMag={maximumMagnitude}
           />
         Start Date:
-        <input
+        <DatePicker
+          value={startDate}
+          onChange={setStartDate}
+        />
+        {/*<input
           type="date"
           className="DateInput"
           value={startDate}
           onChange={setStartDate}
-        />
+        />*/}
         End Date:
-        <input
+        <DatePicker
+          value={endDate}
+          onChange={setEndDate}
+        />
+        {/*<input
           type="date"
           className="DateInput" 
           value={endDate}
           onChange={setEndDate}
-        />
+        />*/}
         </form>
+        <button onClick={checkDates}> Check date </button>
       </div>
       <BarChart 
         apiData={apiData}
