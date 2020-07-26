@@ -48,8 +48,8 @@ function App() {
     setPage(newPageValue)
   }
 
-  // Format date
-  function formatDate(){
+  // Format start date
+  function formatStartDate(){
     let startMonth = startDate.getUTCMonth() + 1; //months from 1-12
     let startDay = startDate.getUTCDate();
     let startYear = startDate.getUTCFullYear();
@@ -57,6 +57,17 @@ function App() {
     let startTime = startYear + "-" + startMonth + "-" + startDay;
     console.log("api start date is", startTime)
     return startTime
+  }
+
+  // Format end date
+  function formatStartDate(){
+    let endMonth = endDate.getUTCMonth() + 1; //months from 1-12
+    let endDay = endDate.getUTCDate();
+    let endYear = endDate.getUTCFullYear();
+
+    let endTime = endYear + "-" + endMonth + "-" + endDay;
+    console.log("api end date is", endTime)
+    return endTime
   }
 
   // Get todays date to pass into api
