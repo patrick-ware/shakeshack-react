@@ -115,6 +115,7 @@ function App() {
             changeMag={maximumMagnitude}
           />
         Start Date:
+        <div style={{background:"#F2A365"}}>
         <DatePicker
           value={startDate}
           onChange={setStartDate}
@@ -136,8 +137,8 @@ function App() {
           value={endDate}
           onChange={setEndDate}
         />*/}
+        </div>
         </form>
-        <button onClick={checkDates}> Check date </button>
       </div>
       <BarChart 
         apiData={apiData}
