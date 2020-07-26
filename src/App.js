@@ -70,19 +70,6 @@ function App() {
     return endTime
   }
 
-  // Get todays date to pass into api
-  function currentDate(){
-    let dateObj = new Date();
-    
-    let month = dateObj.getUTCMonth() + 1; //months from 1-12
-    let day = dateObj.getUTCDate();
-    let year = dateObj.getUTCFullYear();
-    
-    let today = year + "-" + month + "-" + day;
-    console.log("today is", today)
-    return today
-  }
-
   // Fetch data from API
   function doFetch(){
   console.log("fetching data from API...");
