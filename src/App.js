@@ -114,30 +114,22 @@ function App() {
             mag={maxMag}
             changeMag={maximumMagnitude}
           />
-        Start Date:
-        <div style={{background:"#F2A365"}}>
-        <DatePicker
-          value={startDate}
-          onChange={setStartDate}
-        />
-        {/*<input
-          type="date"
-          className="DateInput"
-          value={startDate}
-          onChange={setStartDate}
-        />*/}
-        End Date:
-        <DatePicker
-          value={endDate}
-          onChange={setEndDate}
-        />
-        {/*<input
-          type="date"
-          className="DateInput" 
-          value={endDate}
-          onChange={setEndDate}
-        />*/}
-        </div>
+          <div className="DateInputContainer">
+            <div className="DateInput">
+              Start Date:
+              <DatePicker
+                value={startDate}
+                onChange={setStartDate}
+              />
+            </div>
+            <div className="DateInput">
+              End Date:
+              <DatePicker
+                value={endDate}
+                onChange={setEndDate}
+              />
+            </div>
+          </div>
         </form>
       </div>
       <BarChart 
