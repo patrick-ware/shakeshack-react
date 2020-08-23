@@ -52,20 +52,6 @@ function App() {
     console.log("last record on page is", lastRecordDate)
   }
 
-//  // Get date of first record displaying
-//  function getFirstDate(){
-//    let visibleRecords = apiData.slice(page*20-20, page*20-1)
-//    setFirstRecordDate(new Date(visibleRecords[0].properties.time).toUTCString())
-//    console.log("first record on page is", firstRecordDate)
-//  }
-//    
-//  // Get date of last record displaying
-//  function getLastDate(){
-//    let visibleRecords = apiData.slice(page*20-20, page*20-1)
-//    setLastRecordDate(new Date(visibleRecords[-1].properties.time).toUTCString())
-//    console.log("last record on page is", lastRecordDate)
-//  }
-
   // Go to next page
   function goToNextPage() {
     const newPageValue = Math.min(page + 1, Math.ceil(apiData.length/20))
