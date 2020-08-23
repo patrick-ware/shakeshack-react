@@ -165,8 +165,8 @@ function App() {
         apiData={apiData}
         page={page}
       />
+        <div className="DateInfo" onClick={getDisplayDates}> {"<"}{"<"} Newer Now viewing records from {firstRecordDate} through {lastRecordDate} Older {">"}{">"}</div>
       <div className="PageNav">
-        <div className="PageNav-contol" onClick={getDisplayDates}> Now viewing records from {firstRecordDate} through {lastRecordDate}</div>
         <button className="PageNav-control" onClick={goToPreviousPage}>⬅ Previous Page </button>
         <div className="PageNav-position"> Page {page} of {Math.ceil(apiData.length/20)} </div>
         <button className="PageNav-control" onClick={goToNextPage}>Next Page ➡</button>

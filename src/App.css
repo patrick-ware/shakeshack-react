@@ -144,3 +144,9 @@ html, body, #root, .App {
   margin-right: 5px;
   display: inline;
 }
+
+.DateInfo {
+  display: flex;
+  color: white;
+  justify-content: center;
+}
