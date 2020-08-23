@@ -13,6 +13,8 @@ function App() {
   const [maxMag, setMaxMag] = useState(8.0);
   const [startDate, setStartDate] = useState(new Date("January 1, 2020 00:00:00"));
   const [endDate, setEndDate] = useState(new Date());
+  const [firstRecordDate, setFirstRecordDate] = useState("");
+  const [lastRecordDate, setLastRecordDate] = useState("");
   const [page, setPage] = useState(1);
 
   // Modify minimum magnitude
@@ -31,11 +33,38 @@ function App() {
     setPage(1);
   }
 
-  //Check date inputs
+  // Check date inputs
   function checkDates(){
     console.log('Start date is:', startDate)
     console.log('End date is:', endDate)  
   }
+
+
+  // Get dates of first and last records displaying on page
+  function getDisplayDates(){
+    // Get date of first record displaying
+    let visibleRecords = apiData.slice(page*20-20, page*20-1)
+    setFirstRecordDate(new Date(visibleRecords[visibleRecords.length-1].properties.time).toUTCString())
+    console.log("first record on page is", firstRecordDate)
+
+    // Get date of last record displaying
+    setLastRecordDate(new Date(visibleRecords[1].properties.time).toUTCString())
+    console.log("last record on page is", lastRecordDate)
+  }
+
+//  // Get date of first record displaying
+//  function getFirstDate(){
+//    let visibleRecords = apiData.slice(page*20-20, page*20-1)
+//    setFirstRecordDate(new Date(visibleRecords[0].properties.time).toUTCString())
+//    console.log("first record on page is", firstRecordDate)
+//  }
+//    
+//  // Get date of last record displaying
+//  function getLastDate(){
+//    let visibleRecords = apiData.slice(page*20-20, page*20-1)
+//    setLastRecordDate(new Date(visibleRecords[-1].properties.time).toUTCString())
+//    console.log("last record on page is", lastRecordDate)
+//  }
 
   // Go to next page
   function goToNextPage() {
@@ -96,7 +125,7 @@ function App() {
       });
     }
 
-  useEffect(doFetch,[minMag, maxMag, startDate, endDate])
+  useEffect(doFetch, [minMag, maxMag, startDate, endDate])
 
   return (
     <div>
@@ -137,6 +166,7 @@ function App() {
         page={page}
       />
       <div className="PageNav">
+        <div className="PageNav-contol" onClick={getDisplayDates}> Now viewing records from {firstRecordDate} through {lastRecordDate}</div>
         <button className="PageNav-control" onClick={goToPreviousPage}>⬅ Previous Page </button>
         <div className="PageNav-position"> Page {page} of {Math.ceil(apiData.length/20)} </div>
         <button className="PageNav-control" onClick={goToNextPage}>Next Page ➡</button>
