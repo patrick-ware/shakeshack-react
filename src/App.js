@@ -44,11 +44,11 @@ function App() {
   function getDisplayDates(){
     // Get date of first record displaying
     let visibleRecords = apiData.slice(page*20-20, page*20-1)
-    setFirstRecordDate(new Date(visibleRecords[visibleRecords.length-1].properties.time).toUTCString())
+    setFirstRecordDate(new Date(visibleRecords[0].properties.time).toUTCString())
     console.log("first record on page is", firstRecordDate)
 
     // Get date of last record displaying
-    setLastRecordDate(new Date(visibleRecords[1].properties.time).toUTCString())
+    setLastRecordDate(new Date(visibleRecords[visibleRecords.length-1].properties.time).toUTCString())
     console.log("last record on page is", lastRecordDate)
   }
 
@@ -113,6 +113,7 @@ function App() {
 
   useEffect(doFetch, [minMag, maxMag, startDate, endDate])
 
+
   return (
     <div>
       <div className="title"> Shake Shack </div>
@@ -151,7 +152,7 @@ function App() {
         apiData={apiData}
         page={page}
       />
-        <div className="DateInfo" onClick={getDisplayDates}> {"<"}{"<"} Newer Now viewing records from {firstRecordDate} through {lastRecordDate} Older {">"}{">"}</div>
+        <div className="DateInfo" onClick={getDisplayDates}> {"<"}{"<"} Newer Now viewing records from {lastRecordDate} through {firstRecordDate} Older {">"}{">"}</div>
       <div className="PageNav">
         <button className="PageNav-control" onClick={goToPreviousPage}>⬅ Previous Page </button>
         <div className="PageNav-position"> Page {page} of {Math.ceil(apiData.length/20)} </div>
