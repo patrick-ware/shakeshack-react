@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 // Import components
 import BarChart from './components/BarChart/BarChart.js';
@@ -16,6 +16,8 @@ function App() {
   const [firstRecordDate, setFirstRecordDate] = useState("");
   const [lastRecordDate, setLastRecordDate] = useState("");
   const [page, setPage] = useState(1);
+
+  const isCurrent = useRef(false);
 
   // Modify minimum magnitude
   function minimumMagnitude(ev) {
@@ -42,14 +44,16 @@ function App() {
 
   // Get dates of first and last records displaying on page
   function getDisplayDates(){
-    // Get date of first record displaying
-    let visibleRecords = apiData.slice(page*20-20, page*20-1)
-    setFirstRecordDate(new Date(visibleRecords[0].properties.time).toUTCString())
-    console.log("first record on page is", firstRecordDate)
+    if (isCurrent.current) {
+      // Get date of first record displaying
+      let visibleRecords = apiData.slice(page*20-20, page*20-1)
+      setFirstRecordDate(new Date(visibleRecords[0].properties.time).toUTCString())
+      console.log("first record on page is", firstRecordDate)
 
-    // Get date of last record displaying
-    setLastRecordDate(new Date(visibleRecords[visibleRecords.length-1].properties.time).toUTCString())
-    console.log("last record on page is", lastRecordDate)
+      // Get date of last record displaying
+      setLastRecordDate(new Date(visibleRecords[visibleRecords.length-1].properties.time).toUTCString())
+      console.log("last record on page is", lastRecordDate)
+    }
   }
 
   // Go to next page
@@ -108,11 +112,15 @@ function App() {
       .then(data => {
         console.log("this is data", data)
           setApiData(data.features)
+          isCurrent.current = true;
       });
     }
 
-  useEffect(doFetch, [minMag, maxMag, startDate, endDate])
+  useEffect(() => {
+    getDisplayDates();
+  }, [apiData]);
 
+  useEffect(doFetch, [minMag, maxMag, startDate, endDate])
 
   return (
     <div>
