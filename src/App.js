@@ -44,7 +44,8 @@ function App() {
 
   // Get dates of first and last records displaying on page
   function getDisplayDates(){
-    if (isCurrent.current) {
+    //if (isCurrent.current) {
+    if (apiData.length >0) {
       // Get date of first record displaying
       let visibleRecords = apiData.slice(page*20-20, page*20-1)
       setFirstRecordDate(new Date(visibleRecords[0].properties.time).toUTCString())
@@ -118,7 +119,7 @@ function App() {
 
   useEffect(() => {
     getDisplayDates();
-  }, [apiData]);
+  }, [apiData, page]);
 
   useEffect(doFetch, [minMag, maxMag, startDate, endDate])
 
@@ -160,7 +161,7 @@ function App() {
         apiData={apiData}
         page={page}
       />
-        <div className="DateInfo" onClick={getDisplayDates}> {"<"}{"<"} Newer Now viewing records from {lastRecordDate} through {firstRecordDate} Older {">"}{">"}</div>
+        <div className="DateInfo" onClick={getDisplayDates}> Now viewing records from {lastRecordDate} through {firstRecordDate} </div>
       <div className="PageNav">
         <button className="PageNav-control" onClick={goToPreviousPage}>⬅ Previous Page </button>
         <div className="PageNav-position"> Page {page} of {Math.ceil(apiData.length/20)} </div>
