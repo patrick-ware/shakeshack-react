@@ -19,3 +19,5 @@ The following other parameters were used to retrieve the displayed data:
 `maxlongitude`: -66.885444
 
 The current date is retrieved from the browser and submitted as the `endtime` parameter.
+
+[Check it out live](https://react-component-graph.herokuapp.com/)
