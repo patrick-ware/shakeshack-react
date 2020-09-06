@@ -48,11 +48,13 @@ function App() {
     if (apiData.length >0) {
       // Get date of first record displaying
       let visibleRecords = apiData.slice(page*20-20, page*20-1)
-      setFirstRecordDate(new Date(visibleRecords[0].properties.time).toUTCString())
+      let fullFirstStringDate = new Date(visibleRecords[0].properties.time).toUTCString()
+      setFirstRecordDate(fullFirstStringDate.slice(4,16))
       console.log("first record on page is", firstRecordDate)
 
       // Get date of last record displaying
-      setLastRecordDate(new Date(visibleRecords[visibleRecords.length-1].properties.time).toUTCString())
+      let fullLastStringDate = new Date(visibleRecords[visibleRecords.length-1].properties.time).toUTCString()
+      setLastRecordDate(fullLastStringDate.slice(4,16))
       console.log("last record on page is", lastRecordDate)
     }
   }
