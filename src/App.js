@@ -4,7 +4,7 @@ import './App.css';
 import BarChart from './components/BarChart/BarChart.js';
 import MagInput from './components/MagInput/MagInput.js';
 import DatePicker from 'react-date-picker';
-
+import DataModifier from './components/DataModifier/DataModifier.js';
 
 function App() {
   const [apiData, setApiData] = useState([]);
@@ -128,36 +128,16 @@ function App() {
     <div>
       <div className="title"> Shake Shack </div>
       <h2 className="subtitle"> Significant Earthquakes in North America in 2020</h2>    
-      <div className="DataModifier">
-        <form>
-          <MagInput 
-            label="Minimum Magnitude"
-            mag={minMag}
-            changeMag={minimumMagnitude}
-          />
-          <MagInput 
-            label="Maximum Magnitude"
-            mag={maxMag}
-            changeMag={maximumMagnitude}
-          />
-          <div className="DateInputContainer">
-            <div className="DateInput">
-              Start Date:
-              <DatePicker
-                value={startDate}
-                onChange={setStartDate}
-              />
-            </div>
-            <div className="DateInput">
-              End Date:
-              <DatePicker
-                value={endDate}
-                onChange={setEndDate}
-              />
-            </div>
-          </div>
-        </form>
-      </div>
+      <DataModifier
+        minMag={minMag}
+        changeMinMag={minimumMagnitude}
+        maxMag={maxMag}
+        changeMaxMag={maximumMagnitude}
+        startDate={startDate}
+        onStartChange={setStartDate}
+        endDate={endDate}
+        onEndChange={setEndDate}
+      />
       <BarChart 
         apiData={apiData}
         page={page}

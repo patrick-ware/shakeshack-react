@@ -1,34 +1,40 @@
 import React from 'react';
 import './DataModifier.css';
 
+import MagInput from '../MagInput/MagInput.js';
+import DatePicker from 'react-date-picker';
+
 function DataModifier(props) {
   return (
     <div className="DataModifier">
       <form>
-        <label htmlFor="minmag"> Minimum Magnitude:</label>
-          <input 
-            className="MagInput" 
-            type="number" 
-            id="minmag" 
-            min="1.0" 
-            max="10.0"
-            step="0.1"
-            value={props.minMag} 
-            onChange={props.minimumMagnitude} 
+          <MagInput 
+            label="Minimum Magnitude"
+            mag={props.minMag}
+            changeMag={props.changeMinMag}
           />
-        <label htmlFor="maxmag">Maximum Magnitude:</label>
-          <input 
-            className="MagInput" 
-            type="number" 
-            id="maxmag" 
-            min="1.0" 
-            max="10.0"
-            step="0.1" 
-            value={props.maxMag} 
-            onChange={props.maximumMagnitude} 
-          />
+        <MagInput 
+          label="Maximum Magnitude"
+          mag={props.maxMag}
+          changeMag={props.changeMaxMag}
+        />
+        <div className="DateInputContainer">
+          <div className="DateInput">
+            Start Date:
+            <DatePicker
+              value={props.startDate}
+              onChange={props.onStartChange}
+            />
+          </div>
+          <div className="DateInput">
+            End Date:
+            <DatePicker
+              value={props.endDate}
+              onChange={props.onEndChange}
+            />
+          </div>
+        </div>
       </form>
-      {props.children}
     </div>
   )
 }
