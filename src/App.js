@@ -141,8 +141,9 @@ function App() {
       <BarChart 
         apiData={apiData}
         page={page}
+        
       />
-        <div className="DateInfo" onClick={getDisplayDates}> Now viewing records from {lastRecordDate} through {firstRecordDate} </div>
+      <div className="DateInfo"> Now viewing records from {lastRecordDate} through {firstRecordDate} </div>
       <div className="PageNav">
         <button className="PageNav-control" onClick={goToPreviousPage}>⬅ Previous Page </button>
         <div className="PageNav-position"> Page {page} of {Math.ceil(apiData.length/20)} </div>
