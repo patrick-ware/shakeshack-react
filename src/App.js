@@ -22,16 +22,24 @@ function App() {
   function minimumMagnitude(ev) {
     let value = ev.target.value;
     console.log('Minimum magnitude:', value);
-    setMinMag(value);
-    setPage(1);
+    if (value > maxMag) {
+      alert("Minimum value must be greater than or equal to maximum value")
+    } else {
+      setMinMag(value);
+      setPage(1);
+    }
   }
 
   // Modify maximum magnitude
   function maximumMagnitude(ev) {
     let value = ev.target.value;
     console.log('Maximum magnitude:', value);
-    setMaxMag(value);
-    setPage(1);
+    if (value < minMag) {
+      alert("Maximum value must be greater than or equal to minimum value")
+    } else {
+      setMaxMag(value);
+      setPage(1);
+    }
   }
 
   // Check date inputs
