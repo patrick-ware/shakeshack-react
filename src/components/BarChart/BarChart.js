@@ -24,7 +24,7 @@ function BarChart(props) {
           ))
         }
       </div>
-      <div className="DateInfo"> Now viewing records from {props.lastRecordDate} through {props.firstRecordDate} </div>
+      <div className="DateInfo">Total records: {Object.entries(props.apiData).length}  |  Now viewing records from {props.lastRecordDate} through {props.firstRecordDate} </div>
       <div className="PageNav">
         <button className="PageNav-control" onClick={props.goToPreviousPage}>⬅ Previous Page </button>
         <div className="PageNav-position"> Page {props.page} of {Math.ceil(props.apiData.length/20)} </div>
