@@ -1,10 +1,10 @@
 ![shake-shack-js](./shake-shack.png)
 # shake-shack-components
 
-A React-enabled visualization of 2020 earthquake data in North America from [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/)
+A React-enabled visualization of 2020 earthquake data in North America from [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/). Uses [react-date-picker](https://www.npmjs.com/package/react-date-picker).
 
 ## Parameters
-The user can modify the `minmagnitude` and `maxmagnitude` parameters by using the inputs.
+The user can modify the `minmagnitude`, `maxmagnitude`, `starttime`, and `endtime` parameters by using the inputs.
 
 The following other parameters were used to retrieve the displayed data:
 
